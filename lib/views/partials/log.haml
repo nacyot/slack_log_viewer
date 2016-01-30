@@ -1,0 +1,23 @@
+%a{name: log["ts"].to_s}
+%div.log
+  - if log["user"]
+    %span.user
+      %span.profile-image{onclick: "target = document.getElementById('debug-#{log["ts"]}'); target.style.display = target.style.display === 'none' ? 'block' : 'none'"}
+        %img{src: log["user"]["profile"]["image_24"]}      
+      = log["user"]["name"]
+  %span.time
+    %a{href: "#" + log["ts"].to_s}
+      = Time.at(log["ts"].to_i).strftime("%H:%M:%S")
+  = ":"
+
+  %span.text
+    = preserve Twemoji.parse(log["text"])
+    
+  - if log["attachments"]
+    %div.attachment
+      - log["attachments"].each do |attachment|
+        = haml :"./partials/attachment", locals: {attachment: attachment}
+
+  %div{class: ["debug"], id: ["debug-#{log["ts"]}"]}
+    %pre
+      = preserve JSON.pretty_generate(log)

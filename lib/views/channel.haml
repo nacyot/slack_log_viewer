@@ -1,0 +1,7 @@
+.menu.menu-channels
+  - locals[:channels].each do |ch|
+    %a{href: '/channels/' + ch}= ch
+
+.menu.menu-days
+  - locals[:dates].each do |day|
+    %a{href: "/channels/#{locals[:channel]}/#{day}"}= day

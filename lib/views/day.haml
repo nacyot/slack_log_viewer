@@ -1,0 +1,18 @@
+.menu.menu-channels
+  - locals[:channels].each do |ch|
+    %a{href: '/channels/' + ch}= ch
+
+.menu.menu-days
+  - locals[:dates].each do |day|
+    %a{href: "/channels/#{locals[:channel]}/#{day}"}= day
+
+%h1.today
+  = locals[:day].gsub("-", ". ") + "."
+
+%div.logs
+  - locals[:logs].each do |log|
+    = haml :"./partials/log", locals: {log: log}
+
+.menu.navigation
+  %a{href: "/channels/#{locals[:channel]}/#{prev_day}"}= "< #{prev_day}"
+  %a{href: "/channels/#{locals[:channel]}/#{next_day}"}= "#{next_day} >"

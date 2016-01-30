@@ -1,0 +1,3 @@
+.menu.menu-channels
+  - locals[:channels].each do |ch|
+    %a{href: './channels/' + ch}= ch

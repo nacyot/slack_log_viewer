@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'sinatra'
+require 'optparse'
+
+require 'slack_log_viewer'
+
+options = {}
+
+OptionParser.new do |parser|
+  parser.on('-d', '--dir', 'The log directory') do |dir|
+    options[:log_dir] = dir
+  end
+end.parse!
+
+SlackLogViewer.set :log_dir, options[:log_dir]
+run SlackLogViewer.run!

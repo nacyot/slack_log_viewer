@@ -1,0 +1,38 @@
+- if attachment["image_url"]
+  %span.attachment-image
+    %a{href: attachment["fron_url"]}
+      %img{src: attachment["image_url"]}
+
+- if attachment["thumb_url"]
+  %span.attachment-image
+    %a{href: attachment["fron_url"]}
+      %img{src: attachment["thumb_url"]}
+
+%span.attachment-title
+  - if attachment["from_url"]
+    %a{href: attachment["from_url"]}
+      - if attachment["title"]
+        = attachment["title"]
+      - else
+        - if attachment["from_url"].length < 50
+          = attachment["from_url"]
+        - else
+          = attachment["from_url"][0..49] + "..."
+
+- if attachment["text"]
+  %span.attachment-text
+    = attachment["text"]
+
+.clear
+
+- if attachment["video_html"]
+  %div.attachment-video
+    = attachment["video_html"]
+
+%div.clear
+-#   - if attachment["title_link"]
+-#     (
+-#     = attachment["service_name"]
+-#     = " - "
+-#     = attachment["title"]
+-#     )

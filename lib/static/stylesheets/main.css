@@ -1,0 +1,106 @@
+.main {
+  margin: 2em 1em;
+}
+
+.menu{
+  margin: 1em 0;
+  font-family: "courier new", courier, monospace;
+}
+
+.logs {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+h1.today{
+  margin-top: 1.5em;
+}
+
+.log {
+  width: 100%;
+  padding: 0.5em 0.2em;
+  border-bottom: 1px solid lightgray;
+  vertical-align: middle;
+}
+
+.log .text{
+  line-height: 1.8em;
+}
+
+.log .time{
+  font-size: 0.7em;
+  color: darkgray;
+}
+
+.log .profile-image img{
+  vertical-align:middle;
+}
+
+.log .attachment{
+  border-left: 6px solid lightcoral;
+  margin: 1em auto;
+  padding: 1.2em 1em;
+}
+
+.log pre{
+  border-left: 6px solid lightblue;
+  margin: 1em auto;
+  padding: 1.2em 1em;
+  
+}
+
+.log .attachment-title{
+  display: block;
+  margin: 0em auto;
+}
+
+.log .attachment-image{
+  float: left;
+}
+
+.log .attachment-image img{
+  width: 100px;
+  margin-right: 1em;
+  margin-bottom: 0.3em;
+  vertical-align:middle;
+}
+
+.log .attachment-text{
+  display: block;
+  font-size: 0.85em;
+}
+
+.log .attachment-video{
+  margin-top: 1em;
+}
+
+.log .emoji{
+  vertical-align:middle;
+  margin: 0em 0.3em;
+}
+
+.log .debug{
+  display: none;
+  margin: 1em;
+  padding: 1em;
+  font-size: 0.75em;
+}
+
+a {
+  color: green;
+  text-decoration: none;
+}
+
+a:visited {
+  color: purple;
+}
+
+.clear {
+    clear: both;
+}
+
+pre {
+  font-family: "courier new", courier, monospace;
+  overflow-x: auto;
+  overflow-y: auto;
+}

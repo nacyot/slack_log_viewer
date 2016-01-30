@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "normalize.css": "^3.0.3",
+    "twemoji": "^1.4.1"
+  }
+}
