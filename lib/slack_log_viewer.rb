@@ -7,6 +7,16 @@ class SlackLogViewer < Sinatra::Base
   set :public_folder, File.dirname(__FILE__) + '/node_modules'
   set :public_folder, File.dirname(__FILE__) + '/static'
 
+  before do
+    files = ['users.json', 'channels.json']
+
+    unless request.path_info =~ /not_log_dir/
+      unless files.all? { |file| File.exist?(settings.log_dir + '/' + file) }
+        redirect '/not_log_dir'
+      end
+    end
+  end
+
   get '/' do
     locals = { channels: channels }
     haml :index, locals: locals
@@ -41,6 +51,10 @@ class SlackLogViewer < Sinatra::Base
     }
 
     haml :day, locals: locals
+  end
+
+  get '/not_log_dir' do
+    haml :not_log_dir
   end
 
   private
