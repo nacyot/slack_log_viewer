@@ -3,11 +3,29 @@
 require 'optparse'
 require 'slack_log_viewer'
 
-options = { log_dir: '.' }
+options = {
+  log_dir: '.',
+  port_number: 4567,
+  host_address: '0.0.0.0'
+}
 
 parser = OptionParser.new
-parser.on('-d VALUE') { |dir| options[:log_dir] = dir }
+
+parser.on('-d LOG_DIR', 'Set directory which has log data') do |dir|
+  options[:log_dir] = dir
+end
+
+parser.on('-p PORT_NUMBER', 'Specify Port number') do |port|
+  options[:port_number] = port
+end
+
+parser.on('-h HOST', 'Specify host address') do |host|
+  options[:host_address] = host
+end
+
 parser.parse!
 
 SlackLogViewer.set :log_dir, options[:log_dir]
+SlackLogViewer.set :port, options[:port_number]
+SlackLogViewer.set :bind, options[:host_address]
 SlackLogViewer.run!
