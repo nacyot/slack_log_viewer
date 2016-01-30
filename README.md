@@ -8,7 +8,9 @@ Simple web interface for exploring Slack log.
 # Installing slack_log_viewer
 $ gem install slack_log_viewer
 
-# Before run server, check your log data
+# You can download all data from 'Slack Admin > Message Archives > Export Data' menu.
+# https://<SLACK_TEAM_NAME>.slack.com/archives
+# Before running server, unzip your log data, and check log data
 $ ls <SLACK_LOG_DIR>
 channel1/ channel2/ channels.json users.json ...
 
