@@ -1,2 +1,4 @@
 ./static
 ./node_modules
+*.gem
+/data
