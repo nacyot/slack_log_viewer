@@ -3,6 +3,9 @@ require 'json'
 require 'twemoji'
 require 'CGI'
 
+# Main class of Slack Log Viewer. Sinatra app.
+#
+# @since 0.1
 class SlackLogViewer < Sinatra::Base
   set :public_folder, File.dirname(__FILE__) + '/node_modules'
   set :public_folder, File.dirname(__FILE__) + '/static'
