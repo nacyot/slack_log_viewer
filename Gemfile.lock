@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slack_log_viewer (0.1.0)
+    slack_log_viewer (0.3.0)
       haml (~> 4.0)
       sinatra (~> 1.4)
       twemoji (~> 2.1)

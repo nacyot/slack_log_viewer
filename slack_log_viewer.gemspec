@@ -5,7 +5,7 @@ require 'slack_log_viewer/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'slack_log_viewer'
-  spec.version = ::SlackLogViewer::VERSION
+  spec.version = SLACK_LOG_VIEWER_VERSION
   spec.platform = Gem::Platform::RUBY
   spec.authors = ['Daekwon Kim']
   spec.email = ['i-am-not-a-machine@nacyot.com']

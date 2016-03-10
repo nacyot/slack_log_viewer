@@ -1,4 +1,2 @@
 # Version of Slack Log Viewer
-class SlackLogViewer
-  VERSION = '0.3.0'
-end
+SLACK_LOG_VIEWER_VERSION = '0.3.0'
