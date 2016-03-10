@@ -1,7 +1,8 @@
 require 'sinatra/base'
 require 'json'
 require 'twemoji'
-require 'CGI'
+require 'cgi'
+require 'date'
 
 # Main class of Slack Log Viewer. Sinatra app.
 #
@@ -71,16 +72,24 @@ class SlackLogViewer < Sinatra::Base
   def dates(channel)
     Dir["#{settings.log_dir}/#{channel}/*"]
       .map { |e| File.basename(e, '.json') }
+      .sort
+      .reverse
   end
 
   def logs(channel, day)
-    parse(File.read("#{settings.log_dir}/#{channel}/#{day}.json"))
+    date = Date.parse(day)
+    logs = JSON.load(File.read("#{settings.log_dir}/#{channel}/#{day}.json"))
+    logs = logs.reject do |log|
+      date.year != Time.at(log['ts'].to_i).year
+    end
+
+    parse(logs)
   end
 
   def parse(logs)
     user_dic = users_data
     ch_dic = channels_data
-    logs = JSON.load(logs)
+
     logs.map do |log|
       log['user'] = user_dic[log['user']]
       log['raw_text'] = log['text']
