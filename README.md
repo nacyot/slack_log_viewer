@@ -31,6 +31,15 @@ $ slack-log-viewer -d <SLACK_LOG_DIR>
 
 Browse `localhost:4567`. Port number can be set by `-p` option.
 
+## Docker
+
+Slack Log Viewer can run as a Docker container. 
+
+```
+$ docker build -t nacyot/slack_log_viewer .
+$ docker run -it -v <LOG_DIR>:/tmp/slack -p 5000:5000 nacyot/slack_log_viewer
+```
+
 # Screenshot
 
 ![some logs](http://i.imgur.com/qQQoPuW.png)
