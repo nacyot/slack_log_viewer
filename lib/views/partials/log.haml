@@ -1,10 +1,15 @@
 %a{name: log["ts"].to_s}
 %div.log
-  - if log["user"]
-    %span.user
-      %span.profile-image{onclick: "target = document.getElementById('debug-#{log["ts"]}'); target.style.display = target.style.display === 'none' ? 'block' : 'none'"}
+  %span.user
+    %span.profile-image{onclick: "target = document.getElementById('debug-#{log["ts"]}'); target.style.display = target.style.display === 'none' ? 'block' : 'none'"}
+      - if log["user"]
         %img{src: log["user"]["profile"]["image_24"]}      
-      = log["user"]["name"]
+        = log["user"]["name"]
+      - elsif log["bot_id"]
+        = log["bot_id"]
+      - else
+        Anonymous
+
   %span.time
     %a{href: "#" + log["ts"].to_s}
       = Time.at(log["ts"].to_i).strftime("%H:%M:%S")
